@@ -1,0 +1,21 @@
+server:
+  port: 9999
+  
+spring:
+  profiles:
+    active: jdbc
+  cloud:
+    config:
+      server:
+        jdbc:
+          sql: SELECT `key`, value FROM properties WHERE application=? AND profile=? AND label=?
+          order: 0
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: <database source>
+    username: <database username>
+    password: <database password>
+  security:
+    user:
+      name: root
+      password: dbalxpzm
